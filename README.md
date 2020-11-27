@@ -1,2 +1,3 @@
-# deal
-Dags meal planner
+# Deal
+
+## Dags meal planner
