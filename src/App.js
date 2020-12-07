@@ -4,6 +4,7 @@ import t from "./dt";
 import recipes from "./r";
 import Recipe from "./Recipe";
 import Recipes from "./Recipes";
+import Create from "./Create";
 import React, { useState } from "react";
 
 import { HashRouter, Switch, Route } from "react-router-dom";
@@ -27,6 +28,7 @@ function App() {
     <HashRouter>
       <div>
         <Switch>
+          <Route path="/create" component={Create}></Route>
           <Route path="/recipe/:id" component={Recipe}></Route>
           <Route path="/">
             <Recipes
