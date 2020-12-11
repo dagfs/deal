@@ -1,7 +1,6 @@
-import {u, i} from "./r";
+import { u, i } from "./r";
 import styled from "styled-components";
 import React, { useState } from "react";
-
 
 const RecipeContainer = styled.div`
   width: 80%;
@@ -24,76 +23,83 @@ const Container = styled.div`
 `;
 
 function Recipe() {
-    const [ing, sing] = useState({
-        name: null,
-        unit: null,
-        amount: 1
-    });
+  const [ing, sing] = useState({
+    name: null,
+    unit: null,
+    amount: 1,
+  });
 
-    
-    const setIng  = (event) => {
-        sing({
-            ...ing,
-            name: event.target.value
-        })
-    }
-    const setUnit= (event) => {
-        sing({
-            ...ing,
-            unit: event.target.value
-        })
-    }
-    const setAmount= (event) => {
-        sing({
-            ...ing,
-            amount: event.target.value
-        })
-    }
-    
+  const setIng = (event) => {
+    sing({
+      ...ing,
+      name: event.target.value,
+    });
+  };
+  const setUnit = (event) => {
+    sing({
+      ...ing,
+      unit: event.target.value,
+    });
+  };
+  const setAmount = (event) => {
+    sing({
+      ...ing,
+      amount: event.target.value,
+    });
+  };
+
   const [recipe, setRecipe] = useState({
     title: "",
     description: "",
     cover: null,
     url: "",
     ingredients: [],
-    steps: []
-});
+    steps: [],
+  });
 
-   const setTitle = (event) => {
-       setRecipe({
-           ...recipe,
-           title: event.target.value
-       }
-       )
-   }
-
-   const addIng = () => {
+  const setTitle = (event) => {
     setRecipe({
-        ...recipe,
-        ingredients: [...recipe.ingredients, ing]
-    }
-    ) }
+      ...recipe,
+      title: event.target.value,
+    });
+  };
 
-    const [step, setStep] = useState("");
-    const addStep = () => {
-        setRecipe({
-            ...recipe,
-            steps: [...recipe.steps, step]
-        }) 
-        }
+  const addIng = () => {
+    setRecipe({
+      ...recipe,
+      ingredients: [...recipe.ingredients, ing],
+    });
+  };
+
+  const [step, setStep] = useState("");
+  const addStep = () => {
+    setRecipe({
+      ...recipe,
+      steps: [...recipe.steps, step],
+    });
+  };
+  const log = () => {
+    console.log(recipe);
+  };
   return (
     <RecipeContainer>
-        <label>Title: <input onChange={setTitle}/></label><br/>
-        <label>Url: <input /></label><br />
-        <label>Description: <input /></label>
-        <h1>
-          {recipe.title}
-          </h1> 
+      <label>
+        Title: <input onChange={setTitle} />
+      </label>
+      <br />
+      <label>
+        Url: <input />
+      </label>
+      <br />
+      <label>
+        Description: <input />
+      </label>
+      <h1>{recipe.title}</h1>
 
-      <img src={recipe.cover} /> 
+      <img src={recipe.cover} />
       <IngredientsContainer>
         <h2>Ingredients</h2>
-         <ul>
+        <ul>
           {recipe.ingredients.map((i, k) => {
             return (
               <li key={k}>
@@ -101,43 +107,41 @@ function Recipe() {
               </li>
             );
           })}
-        </ul> 
+        </ul>
         <select onChange={setIng}>
-            {Object.entries(i).map((i, k) => {
-                return (
-                    <option key={k} value={i[1]}>
-                        {i[1]}
-                    </option>
-                )
-            })}
+          {Object.entries(i).map((i, k) => {
+            return (
+              <option key={k} value={i[1]}>
+                {i[1]}
+              </option>
+            );
+          })}
         </select>
         <select onChange={setUnit}>
-        {Object.entries(u).map((i, k) => {
-                return (
-                    <option key={k} value={i[1]}>
-                        {i[1]}
-                    </option>
-                )
-            })}
+          {Object.entries(u).map((i, k) => {
+            return (
+              <option key={k} value={i[1]}>
+                {i[1]}
+              </option>
+            );
+          })}
         </select>
         <input onChange={setAmount} type="number" />
         <button onClick={addIng}>Add</button>
       </IngredientsContainer>
       <StepsContainer>
         <h2>Steps</h2>
-         <ol>
+        <ol>
           {recipe.steps.map((step, k) => {
             return <li key={k}>{step}</li>;
           })}
-        </ol> 
+        </ol>
         <input onChange={(event) => setStep(event.target.value)} />
         <button onClick={addStep}>Add</button>
       </StepsContainer>
-      <code>
-        {JSON.stringify(recipe)}
-    </code>
+      <code>{JSON.stringify(recipe)}</code>
+      <button onClick={log}>Log til consolen</button>
     </RecipeContainer>
-    
   );
 }
 export default Recipe;
