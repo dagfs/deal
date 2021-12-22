@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dbef4c6f.css",
+    "main.js": "/static/js/main.21b42371.js",
+    "static/js/377.f77607cd.chunk.js": "/static/js/377.f77607cd.chunk.js",
+    "static/media/green-curry.jpg": "/static/media/green-curry.0bf449309c1349a892de.jpg",
+    "index.html": "/index.html",
+    "main.dbef4c6f.css.map": "/static/css/main.dbef4c6f.css.map",
+    "main.21b42371.js.map": "/static/js/main.21b42371.js.map",
+    "377.f77607cd.chunk.js.map": "/static/js/377.f77607cd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dbef4c6f.css",
+    "static/js/main.21b42371.js"
+  ]
+}
