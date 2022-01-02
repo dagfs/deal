@@ -1,7 +1,7 @@
 const recipe = {
   name: "recipe",
   type: "document",
-  title: "Recipi",
+  title: "Recipe",
   fields: [
     {
       name: "title",
@@ -9,11 +9,52 @@ const recipe = {
       title: "Title",
     },
     {
+      name: "basedOn",
+      type: "string",
+      title: "Based on",
+    },
+    {
+      name: "description",
+      type: "text",
+      title: "Description"
+    },
+    {
       title: "Ingredients",
       name: "ingredients",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "ingredient" }] }],
+      of: [
+        {
+          name: "recipeIngredient",
+          type: "document",
+          title: "Recipe Ingredient",
+          fields: [
+            {
+              title: "Ingredient",
+              name: "ingredient",
+              type: "reference",
+              to: [{ type: "ingredient" }],
+            },
+            {
+              title: "Mesure",
+              name: "mesure",
+              type: "reference",
+              to: [{ type: "mesure" }],
+            },
+            {
+              title: "Amount",
+              name: "amount",
+              type: "number",
+            },
+          ],
+        }
+      ],
     },
+    {
+      title: "Steps",
+      name: "steps",
+      type: "array",
+      of: [{type: "string"}]
+    }
   ],
 };
 
