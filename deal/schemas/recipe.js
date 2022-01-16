@@ -13,6 +13,11 @@ const recipe = {
       type: "string",
       title: "Based on",
     },
+    { 
+      name: "servings",
+      type: "number",
+      title: "Servings",
+    },
     {
       name: "description",
       type: "text",
